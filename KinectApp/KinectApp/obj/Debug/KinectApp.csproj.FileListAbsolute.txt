@@ -1,0 +1,2 @@
+C:\Users\louis\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.csproj.AssemblyReference.cache
+C:\Users\louis\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.csproj.CoreCompileInputs.cache
