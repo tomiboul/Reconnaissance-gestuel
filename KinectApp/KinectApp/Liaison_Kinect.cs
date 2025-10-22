@@ -31,11 +31,13 @@ class Liaison_Kinect
         else
         {
             Console.WriteLine("La kinect est détectée");
-            // on ouvre le capteur
-            kinectSensor.Open();
 
+            // on ouvre le capteur - demarrage de tous les flux de données
+            kinectSensor.Open();
+            Console.WriteLine("Ouverture du capteur");
+            
             // on démarre la lecture de la frame
-            // readBodyframe();
+            readBodyframe();
         }
     }
 
@@ -63,14 +65,10 @@ class Liaison_Kinect
 
     static void Main(string[] args)
     {
-        Console.WriteLine("coucou");
+        Console.WriteLine("Coucou");
 
         // on crée une instance de la class
-        // LiaisonKinect liaisonKinect = new LiaisonKinect();
-        // liaisonKinect.initKinect();
-
-        initKinect();
-
-
+        Liaison_Kinect liaisonKinect = new Liaison_Kinect();
+        liaisonKinect.initKinect();
     }
 }

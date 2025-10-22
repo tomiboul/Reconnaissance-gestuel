@@ -3,14 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|KinectApp||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\Liaison_Kinect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KinectApp\\Liaison_Kinect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{525D85B5-3763-48BE-AFA2-7F48F150CA06}|KinectApp\\KinectApp.csproj|c:\\users\\louis\\documents\\github\\reconnaissance-gestuel\\kinectapp\\kinectapp\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
+      "AbsoluteMoniker": "D:0:0:{525D85B5-3763-48BE-AFA2-7F48F150CA06}|KinectApp\\KinectApp.csproj|c:\\users\\louis\\documents\\github\\reconnaissance-gestuel\\kinectapp\\kinectapp\\liaison_kinect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{525D85B5-3763-48BE-AFA2-7F48F150CA06}|KinectApp\\KinectApp.csproj|solutionrelative:kinectapp\\liaison_kinect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,27 +19,16 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "KinectApp",
-              "DocumentMoniker": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\KinectApp.csproj",
-              "RelativeDocumentMoniker": "KinectApp\\KinectApp.csproj",
-              "ToolTip": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\KinectApp.csproj",
-              "RelativeToolTip": "KinectApp\\KinectApp.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-22T14:30:40.101Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "Liaison_Kinect.cs",
               "DocumentMoniker": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\Liaison_Kinect.cs",
               "RelativeDocumentMoniker": "KinectApp\\Liaison_Kinect.cs",
-              "ToolTip": "KinectApp/Liaison_Kinect.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAApwCAAAAA4AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\Liaison_Kinect.cs",
+              "RelativeToolTip": "KinectApp\\Liaison_Kinect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "OverriddenGroupName": "KinectApp",
-              "OverriddenToolTip": "KinectApp/Liaison_Kinect.cs",
               "WhenOpened": "2025-10-22T14:27:06.517Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
