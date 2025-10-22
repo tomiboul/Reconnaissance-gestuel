@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/Users/tomiboul/Documents/GitHub/Reconnaissance-gestuel/KinectApp/KinectApp.csproj": {}
+    "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp.csproj": {}
   },
   "projects": {
-    "/Users/tomiboul/Documents/GitHub/Reconnaissance-gestuel/KinectApp/KinectApp.csproj": {
+    "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/tomiboul/Documents/GitHub/Reconnaissance-gestuel/KinectApp/KinectApp.csproj",
+        "projectUniqueName": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp.csproj",
         "projectName": "KinectApp",
-        "projectPath": "/Users/tomiboul/Documents/GitHub/Reconnaissance-gestuel/KinectApp/KinectApp.csproj",
-        "packagesPath": "/Users/tomiboul/.nuget/packages/",
-        "outputPath": "/Users/tomiboul/Documents/GitHub/Reconnaissance-gestuel/KinectApp/obj/",
+        "projectPath": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp.csproj",
+        "packagesPath": "C:\\Users\\louis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/tomiboul/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\louis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "/opt/homebrew/Cellar/dotnet/9.0.8/libexec/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -60,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/opt/homebrew/Cellar/dotnet/9.0.8/libexec/sdk/9.0.109/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

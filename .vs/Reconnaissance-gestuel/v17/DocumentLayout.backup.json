@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C373A7D7-89D6-6CAC-FDA8-7A2538F26694}|KinectApp\\KinectApp.csproj|c:\\users\\louis\\documents\\github\\reconnaissance-gestuel\\kinectapp\\liaisonkinect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C373A7D7-89D6-6CAC-FDA8-7A2538F26694}|KinectApp\\KinectApp.csproj|solutionrelative:kinectapp\\liaisonkinect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C373A7D7-89D6-6CAC-FDA8-7A2538F26694}|KinectApp\\KinectApp.csproj|c:\\users\\louis\\documents\\github\\reconnaissance-gestuel\\kinectapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{C373A7D7-89D6-6CAC-FDA8-7A2538F26694}|KinectApp\\KinectApp.csproj|solutionrelative:kinectapp\\readme.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "liaisonKinect.cs",
+              "DocumentMoniker": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\liaisonKinect.cs",
+              "RelativeDocumentMoniker": "KinectApp\\liaisonKinect.cs",
+              "ToolTip": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\liaisonKinect.cs",
+              "RelativeToolTip": "KinectApp\\liaisonKinect.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-22T13:43:42.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\README.md",
+              "RelativeDocumentMoniker": "KinectApp\\README.md",
+              "ToolTip": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\README.md",
+              "RelativeToolTip": "KinectApp\\README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-10-22T13:25:47.323Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
