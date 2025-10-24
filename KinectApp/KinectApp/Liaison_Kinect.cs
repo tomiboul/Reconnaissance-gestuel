@@ -1,85 +1,81 @@
 using System;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
-using System.IO;
-using System.Reflection;
-using System.Windows;
+using System.Data;
+using System.Linq;
 using Microsoft.Kinect;
 
- // dans le terminal -> etre via 'cd' dans le fichier -> executer "   dotnet run  "
- // source : initKinect/MainWindow.xaml.cs
-
-class Liaison_Kinect
+namespace KinectHeadPositionConsole
 {
-
-    private KinectSensor kinectSensor = null;
-    private BodyFrameReader bodyFrameReader;
-    private string statusText = null;
-    private Body[] bodies = null;
-
-
-    /*
-        Initialisation de la kinect 
-    */
-    public void initKinect()
+    class Program
     {
-        kinectSensor = KinectSensor.GetDefault();
-        if (kinectSensor == null)
+        private static KinectSensor sensor = null;
+        private static Body[] bodies = null;
+        private static BodyFrameReader bodyFrameReader = null;
+        static void Main(string[] args)
         {
-            Console.WriteLine("La kinect n'est pas d�tect�e");
+            //initializes the sensor aand the frame reader
+            sensor = KinectSensor.GetDefault();
+
+            sensor.Open();
+
+            bodyFrameReader = sensor.BodyFrameSource.OpenReader();
+
+            bodyFrameReader.FrameArrived += BodyFrameReader_FrameArrived;
+
+            //main loop to execute the program, escape to quit 
+            while (true)
+            {
+                if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)
+                    break;
+
+                System.Threading.Thread.Sleep(50); 
+            }
+
+
+            //frees the resources
+            bodyFrameReader.FrameArrived -= BodyFrameReader_FrameArrived;
+            bodyFrameReader.Dispose();
+            sensor.Close();
+
+            Console.WriteLine("Stopped");
+
+
+
         }
-        else
+
+        private static void BodyFrameReader_FrameArrived(object sender, BodyFrameArrivedEventArgs e)
         {
-            this.kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
+            using (BodyFrame f = e.FrameReference.AcquireFrame())//gets the current frame 
+            {
+                if (f != null)
+                {
+                    if (bodies == null)
+                    {
+                        bodies = new Body[f.BodyCount];
+                    }
+                    else { 
+                        f.GetAndRefreshBodyData(bodies);
 
-            // on ouvre le capteur - demarrage de tous les flux de donn�es
-            kinectSensor.Open();
-            this.StatusText = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
-                                                            : Properties.Resources.NoSensorStatusText;
-            Console.WriteLine("La kinect est d�tect�e");
-            Console.WriteLine("Ouverture du capteur");
-            
-            // on d�marre la lecture de la frame
-            //readBodyframe();
+                        //gets the body tracked by the kinect device
+                        Body trackedBody = null;
+                        for (int i = 0; i < bodies.Length; i++) {
+                            if (bodies[i] != null && bodies[i].IsTracked) { 
+                                trackedBody = bodies[i];
+                            }
+                        }
+
+                        //gets the actual joints of the tracked body
+                        if (trackedBody != null)
+                        {
+                            Joint right_hand_j = trackedBody.Joints[JointType.HandRight];
+                            CameraSpacePoint position = right_hand_j.Position;
+                            Console.WriteLine($"x main droite={position.X}");
+                            Joint left_hand_j = trackedBody.Joints[JointType.HandRight];
+                            CameraSpacePoint positionl = left_hand_j.Position;
+                            Console.WriteLine($"x main left={positionl.X}");
+                        }                                              
+                    }
+                }
+            }
         }
-    }
-
-    /*
-        Cloture de la kinect
-    */
-    public void closeKinect(){
-        if(kinectSensor != null){
-            kinectSensor = null;
-            Console.WriteLine("La kinect vient de se d�connect�e");
-        }
-    }
-
-
-
-    /*
-        Lecture des donn�es du kinect
-    */
-    public void readBodyframe()
-    {
-        bodyFrameReader = kinectSensor.BodyFrameSource.OpenReader();
-        // ...
-    }
-
-
-    private void Sensor_IsAvailableChanged(object sender, IsAvailableChangedEventArgs e)
-    {
-        // on failure, set the status text
-        this.StatusText = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
-                                                        : Properties.Resources.SensorNotAvailableStatusText;
-    }
-        
-    static void Main(string[] args)
-    {
-        Console.WriteLine("Coucou");
-
-        // on cr�e une instance de la class
-        Liaison_Kinect liaisonKinect = new Liaison_Kinect();
-        liaisonKinect.initKinect();
     }
 }
