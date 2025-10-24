@@ -1,0 +1,1 @@
+# https://github.com/prashver/hand-landmark-recognition-using-mediapip
