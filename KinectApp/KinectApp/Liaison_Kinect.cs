@@ -15,6 +15,7 @@ class Liaison_Kinect
 
     private KinectSensor kinectSensor = null;
     private BodyFrameReader bodyFrameReader;
+    private string statusText = null;
     private Body[] bodies = null;
 
 
@@ -26,18 +27,21 @@ class Liaison_Kinect
         kinectSensor = KinectSensor.GetDefault();
         if (kinectSensor == null)
         {
-            Console.WriteLine("La kinect n'est pas détectée");
+            Console.WriteLine("La kinect n'est pas dï¿½tectï¿½e");
         }
         else
         {
-            Console.WriteLine("La kinect est détectée");
+            this.kinectSensor.IsAvailableChanged += this.Sensor_IsAvailableChanged;
 
-            // on ouvre le capteur - demarrage de tous les flux de données
+            // on ouvre le capteur - demarrage de tous les flux de donnï¿½es
             kinectSensor.Open();
+            this.StatusText = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
+                                                            : Properties.Resources.NoSensorStatusText;
+            Console.WriteLine("La kinect est dï¿½tectï¿½e");
             Console.WriteLine("Ouverture du capteur");
             
-            // on démarre la lecture de la frame
-            readBodyframe();
+            // on dï¿½marre la lecture de la frame
+            //readBodyframe();
         }
     }
 
@@ -47,27 +51,34 @@ class Liaison_Kinect
     public void closeKinect(){
         if(kinectSensor != null){
             kinectSensor = null;
-            Console.WriteLine("La kinect vient de se déconnectée");
+            Console.WriteLine("La kinect vient de se dï¿½connectï¿½e");
         }
     }
 
 
 
     /*
-        Lecture des données du kinect
+        Lecture des donnï¿½es du kinect
     */
     public void readBodyframe()
     {
         bodyFrameReader = kinectSensor.BodyFrameSource.OpenReader();
         // ...
     }
-    
 
+
+    private void Sensor_IsAvailableChanged(object sender, IsAvailableChangedEventArgs e)
+    {
+        // on failure, set the status text
+        this.StatusText = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
+                                                        : Properties.Resources.SensorNotAvailableStatusText;
+    }
+        
     static void Main(string[] args)
     {
         Console.WriteLine("Coucou");
 
-        // on crée une instance de la class
+        // on crï¿½e une instance de la class
         Liaison_Kinect liaisonKinect = new Liaison_Kinect();
         liaisonKinect.initKinect();
     }
