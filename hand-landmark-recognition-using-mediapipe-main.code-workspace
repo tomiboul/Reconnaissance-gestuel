@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"name": "hand-landmark-recognition-using-mediapipe-main",
+		"path": "../../../Downloads/hand-landmark-recognition-using-mediapipe-main"
+	},
+	{
+		"name": "Reconnaissance-gestuel",
+		"path": "."
+	}
+],
+  "settings": {}
+}
