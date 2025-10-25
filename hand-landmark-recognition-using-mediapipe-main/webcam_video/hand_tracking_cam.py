@@ -4,7 +4,6 @@ import mediapipe.python.solutions.drawing_utils as drawing
 import mediapipe.python.solutions.drawing_styles as drawing_styles
 import geste
 
-
 hands = mp_hands.Hands(
     static_image_mode=False,
     max_num_hands=2,                # we can modify here the number of hands detected
@@ -42,7 +41,9 @@ while cam.isOpened():
                 drawing_styles.get_default_hand_connections_style(),
             )
             landmarks = hand_landmarks.landmark
-            geste.go_to_detect_gesture(landmarks)
+            gestureSend = geste.go_to_detect_gesture(landmarks)
+
+            
             print(i)
             i = i+1
             
@@ -56,29 +57,3 @@ while cam.isOpened():
 
 cam.release()
 
-
-"""
-code pour le pouce en l'air — CHATGPT
-
-            # --- Analyse du geste ---
-            landmarks = hand_landmarks.landmark
-
-            # On récupère la hauteur (axe Y) des extrémités des doigts
-            thumb_tip = landmarks[mp_hands.HandLandmark.THUMB_TIP].y
-            thumb_ip = landmarks[mp_hands.HandLandmark.THUMB_IP].y
-            index_tip = landmarks[mp_hands.HandLandmark.INDEX_FINGER_TIP].y
-            middle_tip = landmarks[mp_hands.HandLandmark.MIDDLE_FINGER_TIP].y
-            ring_tip = landmarks[mp_hands.HandLandmark.RING_FINGER_TIP].y
-            pinky_tip = landmarks[mp_hands.HandLandmark.PINKY_TIP].y
-
-            # Le pouce levé : thumb_tip < thumb_ip (donc pouce vers le haut)
-            # et les autres doigts sont plus bas (repliés)
-            if (thumb_tip < thumb_ip and
-                index_tip > landmarks[mp_hands.HandLandmark.INDEX_FINGER_MCP].y and
-                middle_tip > landmarks[mp_hands.HandLandmark.MIDDLE_FINGER_MCP].y and
-                ring_tip > landmarks[mp_hands.HandLandmark.RING_FINGER_MCP].y and
-                pinky_tip > landmarks[mp_hands.HandLandmark.PINKY_MCP].y):
-                cv.putText(img_rgb, "Pouce en l'air 👍", (50, 100),
-                           cv.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 4)
-
-"""
