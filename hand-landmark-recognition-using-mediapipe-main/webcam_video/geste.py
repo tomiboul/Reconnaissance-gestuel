@@ -6,7 +6,9 @@ from math import *
 class Gesture(Enum):
     thumbs_up = "Pouce en l'air"   # pouce en l'air
     say_shush = "Chut beau gosse"   # met l'index vers le haut (comme pour dire chute)
-    stop = "Stop"
+    vertical_hand = "La main verticale"
+    horizontal_hand = "la main horizontal"
+
     nothing = "Aucun gestes detectés"
 
 def distance_euclidienne(JointA, JointB):
@@ -31,15 +33,14 @@ def go_to_detect_gesture(joint_from_hand):
     list_function_detection = [
         detect_say_shush,
         detect_thumbs_up, 
-        detect_sign_to_stop
+        detect_vertical_right_hand
     ]
 
     for function_detection in list_function_detection :
         gesture = function_detection(joint_from_hand)
         if gesture  != None :
             print(gesture.value)
-        else :
-            print(Gesture.nothing.value)
+            return gesture
 
 
 
@@ -55,8 +56,8 @@ def detect_thumbs_up(joint_from_hand) -> Gesture :
         ——————
         return if the gesture is a thumbs_up OR not
     """
-    Wrist = joint_from_hand[mp_hands.HandLandmark.WRIST] #paume de la main
-    #Thumb_cmc = joint_from_hand[mp_hands.HandLandmark.THUMB_CMC]
+    Wrist = joint_from_hand[mp_hands.HandLandmark.WRIST] # le poignet de la main
+
     Thumb_mcp = joint_from_hand[mp_hands.HandLandmark.THUMB_MCP]
     Thumb_ip = joint_from_hand[mp_hands.HandLandmark.THUMB_IP]
     Thumb_tip = joint_from_hand[mp_hands.HandLandmark.THUMB_TIP]
@@ -120,7 +121,7 @@ def detect_say_shush(joint_from_hand) -> Gesture :
         return None
 
 
-def detect_sign_to_stop(joint_from_hand) -> Gesture :
+def detect_vertical_right_hand(joint_from_hand) -> Gesture :
 
     Wrist = joint_from_hand[mp_hands.HandLandmark.WRIST] #paume de la main
 
@@ -160,7 +161,7 @@ def detect_sign_to_stop(joint_from_hand) -> Gesture :
         and (distance_euclidienne(Ring_tip, Middle_tip) < 0.07) 
         and (distance_euclidienne(Middle_tip, Index_tip) < 0.07) 
         and (distance_euclidienne(Thumb_tip, Index_pip) < 0.07)) :
-        return Gesture.stop
+        return Gesture.vertical_hand
     else : 
         return None
     

@@ -31,6 +31,39 @@ while cam.isOpened():
     # Convert image to RGB format
     img_rgb = cv.cvtColor(img_rgb, cv.COLOR_RGB2BGR)
 
+
+    if hands_detected.multi_hand_landmarks:
+
+        gestures = {}
+        for hand_landmarks, hand_handedness in zip(hands_detected.multi_hand_landmarks, hands_detected.multi_handedness): # attention l'idée de la fonction zip a été fournie par ChatGpt
+            
+            hand_label = hand_handedness.classification[0].label
+            
+            drawing.draw_landmarks(
+                img_rgb,
+                hand_landmarks,
+                mp_hands.HAND_CONNECTIONS,
+                drawing_styles.get_default_hand_landmarks_style(),
+                drawing_styles.get_default_hand_connections_style(),
+            )
+            landmarks = hand_landmarks.landmark
+
+            if hand_label == "Right" :
+                gestures[hand_label] =geste.go_to_detect_gesture(landmarks)
+            elif hand_label == "Left" :
+                gestures[hand_label] = geste.go_to_detect_gesture(landmarks)
+            else :
+                print("Problem with the detection of hands")
+
+        if ("Left" in gestures and "Right" in gestures) : 
+            if ((gestures["Left"] == geste.Gesture.horizontal_hand and gestures["Right"] == geste.Gesture.vertical_hand)
+                or (gestures["Right"] == geste.Gesture.horizontal_hand and gestures["Left"] == geste.Gesture.vertical_hand)) :
+                print("Signe stop détecté \n ") 
+                
+        print(i)
+        i = i+1
+
+    """
     if hands_detected.multi_hand_landmarks:
         for hand_landmarks in hands_detected.multi_hand_landmarks:
             drawing.draw_landmarks(
@@ -43,9 +76,8 @@ while cam.isOpened():
             landmarks = hand_landmarks.landmark
             gestureSend = geste.go_to_detect_gesture(landmarks)
 
-            
             print(i)
-            i = i+1
+            i = i+1"""
             
 
 
