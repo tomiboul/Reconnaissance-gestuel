@@ -20,6 +20,8 @@ cam.set(6, height)  # Set the height
 i = 0 ;
 gestureConfirmedRight = GestureConfirmed.GestureConfirmed() # crée l'objet permettant de confirmer un geste
 gestureConfirmedLeft = GestureConfirmed.GestureConfirmed() # crée l'objet permettant de confirmer un geste 
+gestureRight = geste.Gesture.nothing
+gestureLeft = geste.Gesture.nothing
 
 while cam.isOpened():
     success, img_rgb = cam.read()
@@ -56,6 +58,7 @@ while cam.isOpened():
                 gestureRight = geste.go_to_detect_gesture(landmarks)
                 gestures[hand_label] = gestureRight
                 gestureConfirmedRight.listOfGesture.append(gestureRight)
+                gestureRight = gestureConfirmedRight.analyseGesture()
                 if len(gestureConfirmedRight.listOfGesture) > 8:
                     del gestureConfirmedRight.listOfGesture[0]
 
@@ -63,6 +66,7 @@ while cam.isOpened():
                 gestureLeft = geste.go_to_detect_gesture(landmarks)
                 gestures[hand_label] = gestureLeft
                 gestureConfirmedLeft.listOfGesture.append(gestureLeft)
+                gestureLeft = gestureConfirmedLeft.analyseGesture()
                 if len(gestureConfirmedLeft.listOfGesture) > 8:
                     del gestureConfirmedLeft.listOfGesture[0]
 
@@ -74,6 +78,13 @@ while cam.isOpened():
                 or (gestures["Right"] == geste.Gesture.horizontal_hand and gestures["Left"] == geste.Gesture.vertical_hand)) :
                 print("Signe stop détecté \n ") 
 
+        if gestureLeft != geste.Gesture.nothing :
+            print("left succes " + str(gestureLeft))
+            gestureLeft = geste.Gesture.nothing
+        if gestureRight != geste.Gesture.nothing :
+            print("right succes " + str(gestureRight))
+            gestureRight = geste.Gesture.nothing
+
     # If no hands detected we add to the object gestureConfirmedLeft and 
     # gestureConfirmedRight that no gesture are deteted and remove the oldest gesture
     else :  
@@ -84,7 +95,8 @@ while cam.isOpened():
         if len(gestureConfirmedLeft.listOfGesture) > 8:
             del gestureConfirmedLeft.listOfGesture[0]
 
-    print( f"{i} : {gestureConfirmedLeft.listOfGesture} and {gestureConfirmedRight.listOfGesture}" )
+    #print( f"{i} : {gestureConfirmedLeft.listOfGesture} and {gestureConfirmedRight.listOfGesture}" )
+    print(i)
     i = i+1
 
         

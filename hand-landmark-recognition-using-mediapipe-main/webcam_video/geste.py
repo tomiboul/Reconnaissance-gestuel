@@ -38,8 +38,8 @@ def go_to_detect_gesture(joint_from_hand):
         detect_thumbs_up, 
         detect_vertical_right_hand,
         detect_thumbs_down,
-        detect_peace_sign,
-        detect_thumbs_mid
+        detect_peace_sign
+        #detect_thumbs_mid
     ]
 
     for function_detection in list_function_detection :
