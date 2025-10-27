@@ -8,6 +8,7 @@ class GestureConfirmed :
     
     def analyseGesture(self, gesture):
         timer = time.time()
+        
         if (timer > 1) :
             timer = 0
             self.listOfGesture = []

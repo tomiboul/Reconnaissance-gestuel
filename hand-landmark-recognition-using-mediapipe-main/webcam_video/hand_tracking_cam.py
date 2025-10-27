@@ -3,6 +3,7 @@ import mediapipe.python.solutions.hands as mp_hands
 import mediapipe.python.solutions.drawing_utils as drawing
 import mediapipe.python.solutions.drawing_styles as drawing_styles
 import geste
+import GestureConfirmed
 
 hands = mp_hands.Hands(
     static_image_mode=False,
@@ -17,6 +18,8 @@ cam.set(8, width)  # Set the width
 cam.set(6, height)  # Set the height
 
 i = 0 ;
+gestureConfirmedRight = GestureConfirmed.GestureConfirmed() # crée l'objet permettant de confirmer un geste
+gestureConfirmedLeft = GestureConfirmed.GestureConfirmed() # crée l'objet permettant de confirmer un geste 
 
 while cam.isOpened():
     success, img_rgb = cam.read()
@@ -34,6 +37,7 @@ while cam.isOpened():
 
     if hands_detected.multi_hand_landmarks:
 
+        # separer les 2 mains
         gestures = {}
         for hand_landmarks, hand_handedness in zip(hands_detected.multi_hand_landmarks, hands_detected.multi_handedness): # attention l'idée de la fonction zip a été fournie par ChatGpt
             
@@ -49,9 +53,19 @@ while cam.isOpened():
             landmarks = hand_landmarks.landmark
 
             if hand_label == "Right" :
-                gestures[hand_label] =geste.go_to_detect_gesture(landmarks)
+                gestureRight = geste.go_to_detect_gesture(landmarks)
+                gestures[hand_label] = gestureRight
+                gestureConfirmedRight.listOfGesture.append(gestureRight)
+                if len(gestureConfirmedRight.listOfGesture) > 8:
+                    del gestureConfirmedRight.listOfGesture[0]
+
             elif hand_label == "Left" :
-                gestures[hand_label] = geste.go_to_detect_gesture(landmarks)
+                gestureLeft = geste.go_to_detect_gesture(landmarks)
+                gestures[hand_label] = gestureLeft
+                gestureConfirmedLeft.listOfGesture.append(gestureLeft)
+                if len(gestureConfirmedLeft.listOfGesture) > 8:
+                    del gestureConfirmedLeft.listOfGesture[0]
+
             else :
                 print("Problem with the detection of hands")
 
@@ -59,9 +73,21 @@ while cam.isOpened():
             if ((gestures["Left"] == geste.Gesture.horizontal_hand and gestures["Right"] == geste.Gesture.vertical_hand)
                 or (gestures["Right"] == geste.Gesture.horizontal_hand and gestures["Left"] == geste.Gesture.vertical_hand)) :
                 print("Signe stop détecté \n ") 
-                
-        print(i)
-        i = i+1
+
+    # If no hands detected we add to the object gestureConfirmedLeft and 
+    # gestureConfirmedRight that no gesture are deteted and remove the oldest gesture
+    else :  
+        gestureConfirmedLeft.listOfGesture.append(geste.Gesture.nothing)
+        gestureConfirmedRight.listOfGesture.append(geste.Gesture.nothing)
+        if len(gestureConfirmedRight.listOfGesture) > 8:
+            del gestureConfirmedRight.listOfGesture[0]
+        if len(gestureConfirmedLeft.listOfGesture) > 8:
+            del gestureConfirmedLeft.listOfGesture[0]
+
+    print( f"{i} : {gestureConfirmedLeft.listOfGesture} and {gestureConfirmedRight.listOfGesture}" )
+    i = i+1
+
+        
 
     """
     if hands_detected.multi_hand_landmarks:

@@ -45,8 +45,10 @@ def go_to_detect_gesture(joint_from_hand):
     for function_detection in list_function_detection :
         gesture = function_detection(joint_from_hand)
         if gesture  != None :
-            print(gesture.value)
+            #print(gesture.value)
             return gesture
+        
+    return Gesture.nothing
 
 
 
