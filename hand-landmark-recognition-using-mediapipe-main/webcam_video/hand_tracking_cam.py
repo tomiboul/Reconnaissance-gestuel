@@ -31,7 +31,7 @@ while cam.isOpened():
 
     # Convert image to RGB format
     img_rgb = cv.cvtColor(img_rgb, cv.COLOR_BGR2RGB)
-    hands_detected = hands.process(img_rgb)         # the result
+    hands_detected = hands.process(img_rgb)         
 
     # Convert image to RGB format
     img_rgb = cv.cvtColor(img_rgb, cv.COLOR_RGB2BGR)
