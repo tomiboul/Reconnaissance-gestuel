@@ -7,10 +7,16 @@ namespace KinectHeadPositionConsole
 {
     class Program
     {
+<<<<<<< Updated upstream
         private static KinectSensor sensor = null;
         private static Body[] bodies = null;
         private static BodyFrameReader bodyFrameReader = null;
         static void Main(string[] args)
+=======
+        kinectSensor = KinectSensor.GetDefault();
+        Console.WriteLine(kinectSensor.ToString());
+        if (kinectSensor == null)
+>>>>>>> Stashed changes
         {
             //initializes the sensor aand the frame reader
             sensor = KinectSensor.GetDefault();
