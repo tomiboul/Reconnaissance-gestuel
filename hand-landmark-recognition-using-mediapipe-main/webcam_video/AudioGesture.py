@@ -1,4 +1,4 @@
-# Video permettant dew comprendre comment mainupuler les sons avec python
+# Video permettant dew comprendre comment manipuler les sons avec python
 # https://www.youtube.com/watch?v=qq8W5tMYb4w
 import pygame
 import os

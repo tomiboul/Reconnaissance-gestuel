@@ -98,27 +98,7 @@ while cam.isOpened():
     #print( f"{i} : {gestureConfirmedLeft.listOfGesture} and {gestureConfirmedRight.listOfGesture}" )
     print(i)
     i = i+1
-
-        
-
-    """
-    if hands_detected.multi_hand_landmarks:
-        for hand_landmarks in hands_detected.multi_hand_landmarks:
-            drawing.draw_landmarks(
-                img_rgb,
-                hand_landmarks,
-                mp_hands.HAND_CONNECTIONS,
-                drawing_styles.get_default_hand_landmarks_style(),
-                drawing_styles.get_default_hand_connections_style(),
-            )
-            landmarks = hand_landmarks.landmark
-            gestureSend = geste.go_to_detect_gesture(landmarks)
-
-            print(i)
-            i = i+1"""
             
-
-
 
     cv.imshow("Show Video", cv.flip(img_rgb, 1))
 
