@@ -22,3 +22,14 @@ C:\Users\louis\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\D
 C:\Users\louis\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.csproj.Up2Date
 C:\Users\louis\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.exe
 C:\Users\louis\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.pdb
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.csproj.AssemblyReference.cache
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.exe.config
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.csproj.CoreCompileInputs.cache
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\bin\Debug\KinectApp.exe.config
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\bin\Debug\KinectApp.exe
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\bin\Debug\KinectApp.pdb
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\bin\Debug\Microsoft.Kinect.dll
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\bin\Debug\Microsoft.Kinect.xml
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.csproj.Up2Date
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.exe
+C:\Users\julie\Documents\GitHub\Reconnaissance-gestuel\KinectApp\KinectApp\obj\Debug\KinectApp.pdb
