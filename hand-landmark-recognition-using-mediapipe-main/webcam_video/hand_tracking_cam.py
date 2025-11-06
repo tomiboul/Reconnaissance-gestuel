@@ -78,10 +78,14 @@ while cam.isOpened():
                 or (gestures["Right"] == geste.Gesture.horizontal_hand and gestures["Left"] == geste.Gesture.vertical_hand)) :
                 print("Signe stop détecté \n ") 
 
-        if gestureLeft != geste.Gesture.nothing :
+        if (gestureLeft != geste.Gesture.nothing 
+            and gestureLeft != geste.Gesture.vertical_hand
+            and gestureLeft != geste.Gesture.horizontal_hand):
             print("left succes " + str(gestureLeft))
             gestureLeft = geste.Gesture.nothing
-        if gestureRight != geste.Gesture.nothing :
+        if (gestureRight != geste.Gesture.nothing
+            and gestureRight != geste.Gesture.vertical_hand
+            and gestureRight != geste.Gesture.horizontal_hand) :
             print("right succes " + str(gestureRight))
             gestureRight = geste.Gesture.nothing
 
