@@ -2,50 +2,49 @@ using System;
 using System.Data;
 using System.Linq;
 using Microsoft.Kinect;
+using KinectApp;
 
 namespace KinectHeadPositionConsole
 {
     class Program
     {
-<<<<<<< Updated upstream
+        private static float treshold 
         private static KinectSensor sensor = null;
         private static Body[] bodies = null;
         private static BodyFrameReader bodyFrameReader = null;
+
         static void Main(string[] args)
-=======
-        kinectSensor = KinectSensor.GetDefault();
-        Console.WriteLine(kinectSensor.ToString());
-        if (kinectSensor == null)
->>>>>>> Stashed changes
         {
-            //initializes the sensor aand the frame reader
-            sensor = KinectSensor.GetDefault();
+            
+                //initializes the sensor aand the frame reader
+                sensor = KinectSensor.GetDefault();
 
-            sensor.Open();
-
-            bodyFrameReader = sensor.BodyFrameSource.OpenReader();
-
-            bodyFrameReader.FrameArrived += BodyFrameReader_FrameArrived;
-
-            //main loop to execute the program, escape to quit 
-            while (true)
-            {
-                if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)
-                    break;
-
-                System.Threading.Thread.Sleep(50); 
-            }
+                sensor.Open();
 
 
-            //frees the resources
-            bodyFrameReader.FrameArrived -= BodyFrameReader_FrameArrived;
-            bodyFrameReader.Dispose();
-            sensor.Close();
+                bodyFrameReader = sensor.BodyFrameSource.OpenReader();
 
-            Console.WriteLine("Stopped");
+                bodyFrameReader.FrameArrived += BodyFrameReader_FrameArrived;
+
+                //main loop to execute the program, escape to quit 
+                while (true)
+                {
+                    if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)
+                        break;
+
+                    System.Threading.Thread.Sleep(50);
+                }
 
 
+                //frees the resources
+                bodyFrameReader.FrameArrived -= BodyFrameReader_FrameArrived;
+                bodyFrameReader.Dispose();
+                sensor.Close();
 
+                Console.WriteLine("Stopped");
+
+
+            
         }
 
         private static void BodyFrameReader_FrameArrived(object sender, BodyFrameArrivedEventArgs e)
@@ -58,8 +57,9 @@ namespace KinectHeadPositionConsole
                     {
                         bodies = new Body[f.BodyCount];
                     }
-                    else { 
-                        f.GetAndRefreshBodyData(bodies);
+                    else {
+
+                            f.GetAndRefreshBodyData(bodies);
 
                         //gets the body tracked by the kinect device
                         Body trackedBody = null;
@@ -73,11 +73,13 @@ namespace KinectHeadPositionConsole
                         if (trackedBody != null)
                         {
                             Joint right_hand_j = trackedBody.Joints[JointType.HandRight];
-                            CameraSpacePoint position = right_hand_j.Position;
-                            Console.WriteLine($"x main droite={position.X}");
-                            Joint left_hand_j = trackedBody.Joints[JointType.HandRight];
-                            CameraSpacePoint positionl = left_hand_j.Position;
-                            Console.WriteLine($"x main left={positionl.X}");
+                            CameraSpacePoint position_hand_right = right_hand_j.Position;
+                            Joint left_hand_j = trackedBody.Joints[JointType.HandLeft];
+                            CameraSpacePoint position_hand_left = left_hand_j.Position;
+
+                            float distance = utility.compute_distance(position_hand_right.X, position_hand_right.Y, position_hand_left.X, position_hand_left.Y);
+                            Console.WriteLine(distance);
+                         
                         }                                              
                     }
                 }
