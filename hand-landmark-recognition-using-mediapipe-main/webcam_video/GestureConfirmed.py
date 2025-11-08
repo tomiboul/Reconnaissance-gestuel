@@ -1,7 +1,7 @@
 import time
 from geste import Gesture
 class GestureConfirmed : 
-    def __init__(self, minimum_detection = 3):
+    def __init__(self, minimum_detection = 5):
         """
         Create an object to detect and confirm a gesture into a frame of 10 gestures 
         """
@@ -25,11 +25,11 @@ class GestureConfirmed :
             if self.listOfGesture[i] != Gesture.nothing :
                 if (self.listOfGesture.count(self.listOfGesture[i]) >= self.minimum_detection 
                     and self.listOfGesture[i] != Gesture.say_shush): 
-                    #deleteElementBeforeLastGesture(self.listOfGesture, i)
+                    deleteElementBeforeLastGesture(self.listOfGesture, i)
                     return self.listOfGesture[i]
                 elif (self.listOfGesture.count(self.listOfGesture[i]) >= (self.minimum_detection +2) 
                     and self.listOfGesture[i] == Gesture.say_shush):
-                    #deleteElementBeforeLastGesture(self.listOfGesture, i)
+                    deleteElementBeforeLastGesture(self.listOfGesture, i)
                     return self.listOfGesture[i]
 
             i = i - 1
@@ -37,14 +37,14 @@ class GestureConfirmed :
 
 
 
-"""def deleteElementBeforeLastGesture(listeOfGesture, positionInTheList): 
+def deleteElementBeforeLastGesture(listeOfGesture, positionInTheList): 
     listeTemp  = []
     for lastGesture in reversed(listeOfGesture):
         if lastGesture == listeOfGesture[positionInTheList] :
             return list(reversed(listeTemp))
         else :
             listeTemp.append(lastGesture)
-    return listeOfGesture"""
+    return listeOfGesture
 
 """
 listOfGesture = [1,2,9,2,8,0]

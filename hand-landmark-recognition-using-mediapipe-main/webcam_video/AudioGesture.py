@@ -20,7 +20,11 @@ Pay attention when you add a new AudioGesture to have the same name of Gesture
     than the gesture corresponding in 'Gesture' class from geste.py
 """
 class AudioGesture(Enum): 
-    thumbs_up = buildThePath("Tchaikovsky - The Nutcracker Suite - Act II, No.11. Children's Galop and Entrance of the Parents.mp3")
+    thumbs_up = buildThePath("sound for Thumbs Up.mp3")
+    thumbs_down = buildThePath("sound for thumb down.mp3")
+    peace_sign = buildThePath("sound for sign peace.mp3")
+    ok = buildThePath("sound to say OK.mp3")
+    sign_to_stop = buildThePath("sound for sign to stop.mp3")
 
 
 
@@ -30,7 +34,8 @@ def startTheSong(gesture : Gesture, timeOfSongInSeconds = 1 ) :
         audioGesture = AudioGesture[gesture.name]
         playTheSong(audioGesture, timeOfSongInSeconds)
     else :
-        print("\nWe found no song for this gesture.")
+        
+        print(f"\nWe found no song for this gesture. result :{gesture}")
 
 
 def playTheSong(gesture : AudioGesture, timeOfSongInSeconds : int ):
@@ -40,5 +45,3 @@ def playTheSong(gesture : AudioGesture, timeOfSongInSeconds : int ):
     time.sleep(timeOfSongInSeconds)
 
 
-
-startTheSong(Gesture.thumbs_up)
