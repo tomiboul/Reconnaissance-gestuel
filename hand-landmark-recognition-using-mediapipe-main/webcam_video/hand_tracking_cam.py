@@ -4,6 +4,7 @@ import mediapipe.python.solutions.drawing_utils as drawing
 import mediapipe.python.solutions.drawing_styles as drawing_styles
 import geste
 import GestureConfirmed
+import AudioGesture
 
 hands = mp_hands.Hands(
     static_image_mode=False,
@@ -76,17 +77,21 @@ while cam.isOpened():
         if ("Left" in gestures and "Right" in gestures) : 
             if ((gestures["Left"] == geste.Gesture.horizontal_hand and gestures["Right"] == geste.Gesture.vertical_hand)
                 or (gestures["Right"] == geste.Gesture.horizontal_hand and gestures["Left"] == geste.Gesture.vertical_hand)) :
-                print("Signe stop détecté \n ") 
+                print(f"Signe stop détecté {geste.Gesture.sign_to_stop} \n ") 
+                AudioGesture.startTheSong(geste.Gesture.sign_to_stop)
 
         if (gestureLeft != geste.Gesture.nothing 
             and gestureLeft != geste.Gesture.vertical_hand
             and gestureLeft != geste.Gesture.horizontal_hand):
             print("left succes " + str(gestureLeft))
+            AudioGesture.startTheSong(gestureLeft)
             gestureLeft = geste.Gesture.nothing
+
         if (gestureRight != geste.Gesture.nothing
             and gestureRight != geste.Gesture.vertical_hand
             and gestureRight != geste.Gesture.horizontal_hand) :
             print("right succes " + str(gestureRight))
+            AudioGesture.startTheSong(gestureRight)
             gestureRight = geste.Gesture.nothing
 
     # If no hands detected we add to the object gestureConfirmedLeft and 

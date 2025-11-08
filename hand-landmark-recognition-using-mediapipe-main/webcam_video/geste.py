@@ -12,7 +12,7 @@ class Gesture(Enum):
     peace_sign = "peace"
     thumbs_mid = "Pouce au milieu"
     ok = "Ok"
-
+    sign_to_stop = "sign to stop"
     nothing = "Aucun gestes detectés"
 
     
@@ -33,12 +33,12 @@ def go_to_detect_gesture(joint_from_hand):
             null
     """
     list_function_detection = [
-        detect_say_shush,
+        #detect_say_shush,
         detect_thumbs_up, 
-        detect_vertical_hand,
-        detect_horizontal_hand,
         detect_thumbs_down,
         detect_peace_sign,
+        detect_vertical_hand,
+        detect_horizontal_hand,
         detect_ok
         #detect_thumbs_mid
     ]
@@ -93,6 +93,41 @@ def detect_thumbs_up(joint_from_hand) -> Gesture :
         return None
 
 
+def detect_thumbs_down(joint_from_hand) -> Gesture :
+    """
+    Take the set of hand landmarks, take four joints from the hand and detect or not a thumbs_down
+
+    PARAMETERS
+    ——————————
+    joint_from_hand : set of hand landmark
+
+    RETURN
+    ——————
+    return the thumbs_down gesture or nothing
+    """
+    Wrist = joint_from_hand[mp_hands.HandLandmark.WRIST] 
+    Thumb_mcp = joint_from_hand[mp_hands.HandLandmark.THUMB_MCP]
+    Thumb_ip = joint_from_hand[mp_hands.HandLandmark.THUMB_IP]
+    Thumb_tip = joint_from_hand[mp_hands.HandLandmark.THUMB_TIP]
+
+    Index_tip = joint_from_hand[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+    Middle_tip = joint_from_hand[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
+    Ring_tip = joint_from_hand[mp_hands.HandLandmark.RING_FINGER_TIP]
+    Pinky_tip = joint_from_hand[mp_hands.HandLandmark.PINKY_TIP]
+
+    thumbs_down = (Thumb_mcp.y < Thumb_ip.y < Thumb_tip.y )
+    print(f"Thumb MCP y={Thumb_mcp.y:.3f}, IP y={Thumb_ip.y:.3f}, TIP y={Thumb_tip.y:.3f}")
+    if ((thumbs_down == True) 
+        and (calcul.distance_euclidienne(Wrist, Index_tip) < 0.23) 
+        and (calcul.distance_euclidienne(Wrist, Middle_tip) < 0.23) 
+        and (calcul.distance_euclidienne(Wrist, Ring_tip) < 0.23) 
+        and (calcul.distance_euclidienne(Wrist, Pinky_tip) < 0.23)
+        and (calcul.distance_euclidienne(Wrist, Thumb_tip) > 0.2)) :
+        print("Gesture.thumbs_down")
+        return Gesture.thumbs_down
+    else : 
+        return None
+    
 def detect_say_shush(joint_from_hand) -> Gesture :
     """
     Take the set of hand landmarks, take four joints from the hand and detect or not a thumbs_up
@@ -206,7 +241,7 @@ def detect_horizontal_hand(joint_from_hand) -> Gesture :
     Pinky_dip = joint_from_hand[mp_hands.HandLandmark.PINKY_DIP]
     Pinky_pip = joint_from_hand[mp_hands.HandLandmark.PINKY_PIP]
 
-    print(f"Index_tip.y : {Index_tip.y}, Index_dip.y : {Index_dip.y}")
+    #print(f"Index_tip.y : {Index_tip.y}, Index_dip.y : {Index_dip.y}")
     #verify that all fingers are up 
     index_mid = (calcul.distanceMax(Index_tip.y, Index_dip.y, 5)  and  calcul.distanceMax(Index_dip.y, Index_pip.y, 5))
     thumb_mid = (calcul.distanceMax(Thumb_tip.y, Thumb_ip.y, 5)  and  calcul.distanceMax(Thumb_ip.y, Thumb_mcp.y, 5))
@@ -227,39 +262,7 @@ def detect_horizontal_hand(joint_from_hand) -> Gesture :
         and (calcul.distance_euclidienne(Middle_tip, Index_tip) < 0.07) 
         and (calcul.distance_euclidienne(Thumb_tip, Index_pip) < 0.07)"""
 
-def detect_thumbs_down(joint_from_hand) -> Gesture :
-    """
-    Take the set of hand landmarks, take four joints from the hand and detect or not a thumbs_down
 
-    PARAMETERS
-    ——————————
-    joint_from_hand : set of hand landmark
-
-    RETURN
-    ——————
-    return the thumbs_down gesture or nothing
-    """
-    Wrist = joint_from_hand[mp_hands.HandLandmark.WRIST] 
-    Thumb_mcp = joint_from_hand[mp_hands.HandLandmark.THUMB_MCP]
-    Thumb_ip = joint_from_hand[mp_hands.HandLandmark.THUMB_IP]
-    Thumb_tip = joint_from_hand[mp_hands.HandLandmark.THUMB_TIP]
-
-    Index_tip = joint_from_hand[mp_hands.HandLandmark.INDEX_FINGER_TIP]
-    Middle_tip = joint_from_hand[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
-    Ring_tip = joint_from_hand[mp_hands.HandLandmark.RING_FINGER_TIP]
-    Pinky_tip = joint_from_hand[mp_hands.HandLandmark.PINKY_TIP]
-
-    thumbs_down = (Thumb_mcp.y < Thumb_ip.y < Thumb_tip.y )
-
-    if ((thumbs_down == True) 
-        and (calcul.distance_euclidienne(Wrist, Index_tip) < 0.23) 
-        and (calcul.distance_euclidienne(Wrist, Middle_tip) < 0.22) 
-        and (calcul.distance_euclidienne(Wrist, Ring_tip) < 0.22) 
-        and (calcul.distance_euclidienne(Wrist, Pinky_tip) < 0.22)
-        and (calcul.distance_euclidienne(Wrist, Thumb_tip) > 0.2)) :
-        return Gesture.thumbs_down
-    else : 
-        return None
 
 
 
@@ -399,7 +402,7 @@ def detect_ok(joint_from_hand) -> Gesture :
 
     # Check if wrist is below all MCP and TIP landmarks
     wrist_at_lowest = all(
-        Wrist.y > joint.y for joint in [
+        Wrist.y < joint.y for joint in [
             Thumb_mcp, Index_mcp, Middle_mcp, Ring_mcp, Pinky_mcp,
             Thumb_tip, Index_tip, Middle_tip, Ring_tip, Pinky_tip
         ]
@@ -413,7 +416,7 @@ def detect_ok(joint_from_hand) -> Gesture :
     middle_tip_y = Middle_tip.y
     ring_tip_y = Ring_tip.y
 
-    if middle_tip_y > index_pip_y or ring_tip_y > index_pip_y:
+    if middle_tip_y < index_pip_y or ring_tip_y < index_pip_y:
         print("Middle or Ring finger below Index Pip (for OK gesture)")
         return None
 
