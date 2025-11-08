@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//using Naudio.Wave;
+using NAudio.Wave;
 
 //https://mark-dot-net.blogspot.com/2009/10/playback-of-sine-wave-in-naudio.html
 namespace KinectApp
@@ -26,7 +26,7 @@ namespace KinectApp
             int sampleRate = WaveFormat.SampleRate;
             for (int i = 0;  i < count; i++) {
                 //y(t) = A⋅sin(2πft)(added in the buffer)
-                buffer(offset + i) = (float)Volume*Math.Sin(2*Math.PI*Frequency*)
+                buffer(offset + i) = (float)Volume * Math.Sin(2 * Math.PI * Frequency * sample);
         }
 
     }
