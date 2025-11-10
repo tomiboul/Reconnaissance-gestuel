@@ -11,7 +11,7 @@ namespace KinectApp
     {
         public static float compute_distance(float X_1, float Y_1, float X_2, float Y_2)
         {
-            return (float)Math.Sqrt(Math.Pow(Convert.ToDouble(X_2 - X_1), Convert.ToDouble(2))+Math.Pow(Convert.ToDouble(Y_2-Y_1), Convert.ToDouble(2)));
+            return (float)Math.Sqrt(Math.Pow(Convert.ToDouble(X_2 - X_1), Convert.ToDouble(2)) + Math.Pow(Convert.ToDouble(Y_2 - Y_1), Convert.ToDouble(2)));
         }
     }
 }

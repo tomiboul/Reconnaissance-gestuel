@@ -3,8 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\face_recognition\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:face_recognition\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\face_recognition\\facial_gesture_recognition.py||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:face_recognition\\facial_gesture_recognition.py||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hand-landmark-recognition-using-mediapipe-main\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hand-landmark-recognition-using-mediapipe-main\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main\\requirements.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hand-landmark-recognition-using-mediapipe-main\\requirements.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\SoundProvider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KinectApp\\KinectApp\\SoundProvider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\Liaison_Kinect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KinectApp\\KinectApp\\Liaison_Kinect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KinectApp\\KinectApp\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\KinectApp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:KinectApp\\KinectApp\\KinectApp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main.code-workspace||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:hand-landmark-recognition-using-mediapipe-main.code-workspace||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\LICENSE||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:LICENSE||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\LiaisonKinect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -20,7 +68,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -28,20 +76,176 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "facial_gesture_recognition.py",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\face_recognition\\facial_gesture_recognition.py",
+              "RelativeDocumentMoniker": "face_recognition\\facial_gesture_recognition.py",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\face_recognition\\facial_gesture_recognition.py",
+              "RelativeToolTip": "face_recognition\\facial_gesture_recognition.py",
+              "ViewState": "AgIAAH4AAAAAAAAAAAAAAGwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-10T11:07:52.725Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\face_recognition\\.gitignore",
+              "RelativeDocumentMoniker": "face_recognition\\.gitignore",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\face_recognition\\.gitignore",
+              "RelativeToolTip": "face_recognition\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-10T11:07:51.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main\\.gitignore",
+              "RelativeDocumentMoniker": "hand-landmark-recognition-using-mediapipe-main\\.gitignore",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main\\.gitignore",
+              "RelativeToolTip": "hand-landmark-recognition-using-mediapipe-main\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-10T11:07:31.763Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "requirements.txt",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main\\requirements.txt",
+              "RelativeDocumentMoniker": "hand-landmark-recognition-using-mediapipe-main\\requirements.txt",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main\\requirements.txt",
+              "RelativeToolTip": "hand-landmark-recognition-using-mediapipe-main\\requirements.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-10T11:07:25.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main\\README.md",
+              "RelativeDocumentMoniker": "hand-landmark-recognition-using-mediapipe-main\\README.md",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main\\README.md",
+              "RelativeToolTip": "hand-landmark-recognition-using-mediapipe-main\\README.md",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-10T11:07:21.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "utility.cs",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\utility.cs",
+              "RelativeDocumentMoniker": "KinectApp\\KinectApp\\utility.cs",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\utility.cs",
+              "RelativeToolTip": "KinectApp\\KinectApp\\utility.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T10:51:05.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SoundProvider.cs",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\SoundProvider.cs",
+              "RelativeDocumentMoniker": "KinectApp\\KinectApp\\SoundProvider.cs",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\SoundProvider.cs",
+              "RelativeToolTip": "KinectApp\\KinectApp\\SoundProvider.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADkAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-10T10:50:51.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "KinectApp.csproj",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\KinectApp.csproj",
+              "RelativeDocumentMoniker": "KinectApp\\KinectApp\\KinectApp.csproj",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\KinectApp.csproj",
+              "RelativeToolTip": "KinectApp\\KinectApp\\KinectApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-10T10:50:38.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\.gitignore",
+              "RelativeDocumentMoniker": ".gitignore",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\.gitignore",
+              "RelativeToolTip": ".gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-10T10:49:35.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "hand-landmark-recognition-using-mediapipe-main.code-workspace",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main.code-workspace",
+              "RelativeDocumentMoniker": "hand-landmark-recognition-using-mediapipe-main.code-workspace",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\hand-landmark-recognition-using-mediapipe-main.code-workspace",
+              "RelativeToolTip": "hand-landmark-recognition-using-mediapipe-main.code-workspace",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-10T10:49:32.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "LICENSE",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\LICENSE",
+              "RelativeDocumentMoniker": "LICENSE",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\LICENSE",
+              "RelativeToolTip": "LICENSE",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-10T10:49:29.52Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "README.md",
+              "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\README.md",
+              "RelativeDocumentMoniker": "README.md",
+              "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\README.md",
+              "RelativeToolTip": "README.md",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACgAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
+              "WhenOpened": "2025-11-10T10:35:00.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "Liaison_Kinect.cs",
               "DocumentMoniker": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\Liaison_Kinect.cs",
               "RelativeDocumentMoniker": "KinectApp\\KinectApp\\Liaison_Kinect.cs",
               "ToolTip": "C:\\Users\\julie\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\KinectApp\\Liaison_Kinect.cs",
               "RelativeToolTip": "KinectApp\\KinectApp\\Liaison_Kinect.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAFAAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-06T13:21:08.022Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 13,
               "Title": "LiaisonKinect.cs",
               "DocumentMoniker": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\LiaisonKinect.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\LiaisonKinect.cs",
@@ -52,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 14,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\README.md",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\louis\\Documents\\GitHub\\Reconnaissance-gestuel\\KinectApp\\README.md",

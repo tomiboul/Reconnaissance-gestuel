@@ -1,3 +1,4 @@
+// Importing the required Librairies
 using System;
 using System.Data;
 using System.Linq;
@@ -6,21 +7,28 @@ using KinectApp;
 using NAudio.Wave;
 using System.Windows.Controls;
 
+//https://codebeautify.org/csharpviewer#
+
 namespace KinectHeadPositionConsole
 {
+    // Main class of the Program
     class Program
     {
-        private static float treshold;
+
+        //Kinect related variable 
         private static KinectSensor sensor = null;
         private static Body[] bodies = null;
         private static BodyFrameReader bodyFrameReader = null;
+
+        //Sinewave related variable 
         private static WaveOut waveOut = null;
         private static SoundProvider soundProvider;
         private static int frame = 0;
         private static DateTime lastFrame = DateTime.Now;
 
         //framerate of the kinect device, frequency and volume used for pitch interpolation
-        private const int frameRate = 30;
+        private
+        const int frameRate = 30;
         private static float lastFreq;
         private static float currentFreq;
         private static float lastVol;
@@ -31,72 +39,64 @@ namespace KinectHeadPositionConsole
 
         static void Main(string[] args)
         {
-                
-                //initializes the sensor aand the frame reader
-                sensor = KinectSensor.GetDefault();
 
-                sensor.Open();
+            //Initializes the sensor and the frame reader
+            sensor = KinectSensor.GetDefault();
+            sensor.Open();
 
+            bodyFrameReader = sensor.BodyFrameSource.OpenReader();
+            bodyFrameReader.FrameArrived += BodyFrameReader_FrameArrived;
 
-                bodyFrameReader = sensor.BodyFrameSource.OpenReader();
+            //Main loop to execute the program, escape to quit 
+            while (true)
+            {
+                if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)
+                    break;
 
-                bodyFrameReader.FrameArrived += BodyFrameReader_FrameArrived;
+                loopFrame++;
+                System.Threading.Thread.Sleep(50);
+            }
 
-                //main loop to execute the program, escape to quit 
-                while (true)
-                {
-                    if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)
-                        break;
+            //Frees the resources
+            bodyFrameReader.FrameArrived -= BodyFrameReader_FrameArrived;
+            bodyFrameReader.Dispose();
+            sensor.Close();
+            StopSineWave();
 
-                
-                    loopFrame++;
-
-                    System.Threading.Thread.Sleep(50);
-                }
-
-
-                //frees the resources
-
-                bodyFrameReader.FrameArrived -= BodyFrameReader_FrameArrived;
-                bodyFrameReader.Dispose();
-                sensor.Close();
-                StopSineWave();
-               
-
-                Console.WriteLine("Stopped");
-
-
-            
+            Console.WriteLine("Stopped");
         }
 
+        // Function that is executed each time a frame arrive 
         private static void BodyFrameReader_FrameArrived(object sender, BodyFrameArrivedEventArgs e)
         {
-            using (BodyFrame f = e.FrameReference.AcquireFrame())//gets the current frame 
+            using (BodyFrame f = e.FrameReference.AcquireFrame()) //gets the current frame 
             {
                 //Console.WriteLine("frame count : " + frame);
                 frame++;
-                
+
                 if (f != null)
                 {
                     if (bodies == null)
                     {
                         bodies = new Body[f.BodyCount];
                     }
-                    else {
+                    else
+                    {
 
                         f.GetAndRefreshBodyData(bodies);
 
                         //init the soundprovider instance
-                        
                         if (waveOut == null)
                         {
-                            StartSineWave();   
+                            StartSineWave();
                         }
 
                         //gets the body tracked by the kinect device
                         Body trackedBody = null;
-                        for (int i = 0; i < bodies.Length; i++) {
-                            if (bodies[i] != null && bodies[i].IsTracked) { 
+                        for (int i = 0; i < bodies.Length; i++)
+                        {
+                            if (bodies[i] != null && bodies[i].IsTracked)
+                            {
                                 trackedBody = bodies[i];
                             }
                         }
@@ -108,39 +108,38 @@ namespace KinectHeadPositionConsole
                             CameraSpacePoint position_hand_right = right_hand_j.Position;
                             Joint left_hand_j = trackedBody.Joints[JointType.HandLeft];
                             CameraSpacePoint position_hand_left = left_hand_j.Position;
-                            
-                            float distance = utility.compute_distance(position_hand_right.X, position_hand_right.Y, position_hand_left.X, position_hand_left.Y);
 
+                            float distance = utility.compute_distance(position_hand_right.X, position_hand_right.Y, position_hand_left.X, position_hand_left.Y);
 
                             lastFreq = currentFreq;
                             lastVol = currentVol;
                             //can be changed if leads to bad audios
 
                             //currentVol = (float)(Math.Cos(6*distance+Math.PI)+1)/2;
-                            currentVol = 0.4f;
+                            currentVol = 0.4 f;
                             currentFreq = 300 / distance;
-                            
-                            
+
                             if (Math.Abs(previous_distance - distance) <= 0.01)
                             {
                                 currentVol = 0;
                             }
                             previous_distance = distance;
 
-                            if (currentFreq <= 20) {
+                            if (currentFreq <= 20)
+                            {
                                 currentFreq = 20;
                             }
-                            if (currentFreq >= 800) {
+                            if (currentFreq >= 800)
+                            {
                                 currentFreq = 800;
                             }
 
-
                             //Console.WriteLine("updated normally");
                             UpdateSineWave(currentVol, currentFreq);
-                            
+
                             //Console.WriteLine(distance);
-                         
-                        }                                              
+
+                        }
                     }
                 }
                 lastFrame = DateTime.Now;
@@ -148,11 +147,12 @@ namespace KinectHeadPositionConsole
             }
         }
 
+        // Initialize the Sinewave 
         private static void StartSineWave()
         {
             if (waveOut == null)
             {
-            
+
                 soundProvider = new SoundProvider();
                 soundProvider.SetWaveFormat(16000, 1); // 16kHz mono
                 soundProvider.Frequency = 500;
@@ -166,8 +166,10 @@ namespace KinectHeadPositionConsole
             }
         }
 
-        private static void StopSineWave() {
-            if (!( waveOut == null))
+        // Stop the Sinewave
+        private static void StopSineWave()
+        {
+            if (!(waveOut == null))
             {
                 waveOut.Stop();
                 waveOut.Dispose();
@@ -175,6 +177,7 @@ namespace KinectHeadPositionConsole
             }
         }
 
+        // Update Sinewave state
         private static void UpdateSineWave(float Vol, float Freq)
         {
             if (!(soundProvider == null))
