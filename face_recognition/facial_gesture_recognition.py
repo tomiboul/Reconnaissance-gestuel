@@ -6,88 +6,32 @@ mp_holistic = mp.solutions.holistic
 mp_face_mesh = mp.solutions.face_mesh
 
 
-# Chut gestuel
-
-
-def chut(results, hands):
-
-    # loop on the two hands
-
-    for hand_name, hand_landmarks in hands.items():
-
-        if hand_landmarks and results.face_landmarks:
-
-            face = results.face_landmarks.landmark
-            hand = hand_landmarks.landmark
-
-            # required variable
-
-            index_tip = hand[8]
-            index_base = hand[5]
-            wrist = hand[0]
-            mouth_center_x = (face[13].x + face[14].x) / 2
-            mouth_center_y = (face[13].y + face[14].y) / 2
-            
-            #distance for the up finger
-            up_index = (index_tip.y < index_base.y < wrist.y) and (abs(index_tip.x - index_base.x) < 0.05)
-
-            # compute the distance between two points with pythagore
-
-            dx = index_tip.x - mouth_center_x
-            dy = index_tip.y - mouth_center_y
-            distance = (dx**2 + dy**2) ** 0.5
-
-            if up_index and distance < 0.08:
-                print("chut détecté")
-
-
-# Just a raised index finger
-
-
-def raised_finger(hands):
-
-    # I cannot just make a code with a raised finger because it will be detected with the 'chut'
-    # loop on the two hands
-
-    for hand_name, hand_landmarks in hands.items():
-
-        if hand_landmarks and results.face_landmarks:
-
-            face = results.face_landmarks.landmark
-            hand = hand_landmarks.landmark
-
-            # required variable
-
-            index_tip = hand[8]
-            index_base = hand[5]
-            wrist = hand[0]
-            mouth_center_x = (face[13].x + face[14].x) / 2
-            mouth_center_y = (face[13].y + face[14].y) / 2
-            
-            #distance for the up finger
-            up_index = (index_tip.y < index_base.y < wrist.y) and (abs(index_tip.x - index_base.x) < 0.05)
-
-            # compute the distance between two points with pythagore
-
-            dx = index_tip.x - mouth_center_x
-            dy = index_tip.y - mouth_center_y
-            distance = (dx**2 + dy**2) ** 0.5
-            # this is the only difference with the 'chut' because i need to differenciate this gestuel with just a raised finger
-
-            if up_index and distance > 0.08:
-                print("index levé detecté")
-
-
 chin_initial_y = None
+chin_initial_x = None
 number_of_nod = 0
 head_down = False
 head_up = False
+head_right = False
+head_left = False
 current_time = None
 last_time = None
+number_of_shake = 0
 
 def nod_head(results):
+    """
+    Function to detect a nod (yes)
+    -----
+    PARAMETERS
+    -----
+    results : element from Mediapipe that contains the landmarks
+    ------
+    RETURN
+    ------
+    bool : True if a nod is detected false otherwise
 
-    # the initial position for the chin and number need to be global
+    """
+
+    # global variable
 
     global chin_initial_y
     global number_of_nod
@@ -124,7 +68,7 @@ def nod_head(results):
 
 
             if current_time and last_time : 
-                if last_time - current_time <= 2 :
+                if last_time - current_time <= 1 :
                     number_of_nod += 1
                 else : 
                     number_of_nod = 0
@@ -143,6 +87,70 @@ def nod_head(results):
         
 
             
+
+
+def head_shake(results):
+    """
+    Function to detect a head shake (no)
+    -----
+    PARAMETERS
+    -----
+    results : element from Mediapipe that contains the landmarks
+    ------
+    RETURN
+    ------
+    bool : True if a head shake is detected false otherwise
+
+    """
+
+    # global variable
+
+    global chin_initial_x
+    global number_of_shake
+    global head_right
+    global head_left 
+    global current_time
+    global last_time
+
+    if results.face_landmarks:
+
+        # chin
+        chin_center = results.face_landmarks.landmark[152]
+        #if the position of the chin doesnt change we left the function
+        if chin_initial_x == None:
+            current_time = last_time
+            chin_initial_x = chin_center.x
+            return False
+        
+        #distance to detecte a head right
+        if head_right == False and chin_center.x - chin_initial_x > 0.02:
+            print("HEAD RIGHT")
+            current_time = time.time() 
+            head_right = True
+
+         #distance to detect a head down
+        if head_right and head_left == False and chin_initial_x - chin_center.x  > 0.02:
+            print("HEAD left")
+            last_time = time.time()
+            head_left = True
+
+            if current_time and last_time : 
+                if last_time - current_time <= 1 :
+                    number_of_shake += 1
+                else : 
+                    number_of_shake = 0
+            
+            if number_of_shake >= 1 :
+                print("Non de la tete")              
+                head_right = False
+                head_left = False          
+                #reset the number of shake after every shake
+                number_of_shake = 0
+                last_time = None
+                current_time = None
+                return True
+            head_right = False
+            head_left = False
 
 
        
@@ -210,9 +218,7 @@ with mp_holistic.Holistic(
             "left": results.left_hand_landmarks,
         }
         # call functions
-
-        chut(results, hands)
-        raised_finger(hands)
+        head_shake(results)
         nod_head(results)
 cap.release()
 cv2.destroyAllWindows()
