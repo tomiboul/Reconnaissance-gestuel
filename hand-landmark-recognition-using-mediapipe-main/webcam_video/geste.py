@@ -14,6 +14,8 @@ class Gesture(Enum):
     ok = "Ok"
     sign_to_stop = "sign to stop"
     nothing = "Aucun gestes detectés"
+    head_shake_no = "head_shake_no"
+    head_shake_yes = "head_shake_yes"
 
     
 

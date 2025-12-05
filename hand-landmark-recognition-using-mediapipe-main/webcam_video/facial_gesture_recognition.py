@@ -6,10 +6,17 @@ mp_holistic = mp.solutions.holistic
 mp_face_mesh = mp.solutions.face_mesh
 from playsound import playsound
 import threading
-
+from AudioGesture import startTheSong, AudioGesture
+from geste import Gesture
 #thread function from gpt
-def play_sound_async(path):
-    threading.Thread(target=playsound, args=(path,), daemon=True).start()
+
+
+#à enlever si programme fonctionnel
+################################
+################################
+################################
+#def play_sound_async(path):
+#    threading.Thread(target=playsound, args=(path,), daemon=True).start()
 
 chin_initial_y = None
 chin_initial_x = None
@@ -80,8 +87,8 @@ def nod_head(results):
             
             if number_of_nod >= 1 :
                 print("Oui de la tete")  
-                play_sound_async("face_recognition/nod.mp3")
-
+                #play_sound_async("face_recognition/nod.mp3")
+                startTheSong(Gesture.head_shake_yes)
                            
                 #reset de number of nod after every nod
                 head_down = False
@@ -150,7 +157,7 @@ def head_shake(results):
             
             if number_of_shake >= 1 :
                 print("Non de la tete")     
-                play_sound_async("face_recognition/shake.mp3")         
+                startTheSong(Gesture.head_shake_no)
                 head_right = False
                 head_left = False          
                 #reset the number of shake after every shake

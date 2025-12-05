@@ -25,7 +25,8 @@ class AudioGesture(Enum):
     peace_sign = buildThePath("sound for sign peace.mp3")
     ok = buildThePath("sound to say OK.mp3")
     sign_to_stop = buildThePath("sound for sign to stop.mp3")
-
+    head_shake_no = buildThePath("sound for thumb down.mp3")
+    head_shake_yes = buildThePath("sound for Thumbs Up.mp3")
 
 
 
