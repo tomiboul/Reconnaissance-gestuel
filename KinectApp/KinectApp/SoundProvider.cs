@@ -37,24 +37,24 @@ namespace KinectApp
             //target frequency and volumes to modify the sound in a fluid way, and if the frequency greatly differs from one frame to another, the sound changes faster
             coeffFreq = Math.Max(0.03f, Math.Abs(targetFreq- Frequency)*0.0005f);
             Frequency += (targetFreq - Frequency) * coeffFreq;
-            coeffFreq = Math.Max(0.03f, Math.Abs(targetVol - Volume));
+            coeffVol = Math.Max(0.03f, Math.Abs(targetVol - Volume));
             
             Volume += (targetVol - Volume) * coeffVol;
-            Console.WriteLine("Changement");
-            Console.WriteLine(targetVol);
-            Console.WriteLine(Volume);
+            
             if (Volume<= 0.1&& targetVol == 0) { Volume = 0; }
             if (Volume <= 0.1 && targetVol != 0) { Volume += 0.1f; }
             for (int i = 0; i < count; i++)
             {
                 //y(t) = A⋅sin(2πft)(added in the buffer)
-                buffer[offset+i] = (float)(Volume * Math.Sin(phase));
+                buffer[offset+i] = (float)(Volume * (0.9f*Math.Sin(phase)+ 0.1f*Math.Sin(2*phase)));
+                //buffer[offset+i] = (float)(Volume * Math.Sin(phase));
                 phase += phasediff;
                 if (phase > 2 * Math.PI) 
                 {
                     phase -= 2 * Math.PI; 
                 }
             }
+
             return count;
         }
     }

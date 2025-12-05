@@ -27,7 +27,8 @@ namespace KinectHeadPositionConsole
         private static DateTime lastFrame = DateTime.Now;
 
         //framerate of the kinect device, frequency and volume used for pitch interpolation
-        private
+        const int max_frequency = 600;
+        const int min_frequency = 20;
         const int frameRate = 30;
         private static float lastFreq;
         private static float currentFreq;
@@ -35,7 +36,10 @@ namespace KinectHeadPositionConsole
         private static float currentVol;
         private static float previous_distance;
 
-        private static float loopFrame;
+        private static int loopFrame;
+        private static bool active;
+        private static int frameSinceActivation;
+        private static CameraSpacePoint prev_position_hand_right;
 
         static void Main(string[] args)
         {
@@ -53,6 +57,11 @@ namespace KinectHeadPositionConsole
                 if (Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Escape)
                     break;
 
+                //increment to keep track of the frames since the activation (to deactivate it after some time)
+                if (active)
+                {
+                    frameSinceActivation++;
+                }
                 loopFrame++;
                 System.Threading.Thread.Sleep(50);
             }
@@ -66,12 +75,12 @@ namespace KinectHeadPositionConsole
             Console.WriteLine("Stopped");
         }
 
-        // Function that is executed each time a frame arrive 
+        //function that is executed each time a frame arrive 
         private static void BodyFrameReader_FrameArrived(object sender, BodyFrameArrivedEventArgs e)
         {
             using (BodyFrame f = e.FrameReference.AcquireFrame()) //gets the current frame 
             {
-                //Console.WriteLine("frame count : " + frame);
+               
                 frame++;
 
                 if (f != null)
@@ -102,41 +111,111 @@ namespace KinectHeadPositionConsole
                         }
 
                         //gets the actual joints of the tracked body
+
+
+
                         if (trackedBody != null)
                         {
                             Joint right_hand_j = trackedBody.Joints[JointType.HandRight];
                             CameraSpacePoint position_hand_right = right_hand_j.Position;
                             Joint left_hand_j = trackedBody.Joints[JointType.HandLeft];
                             CameraSpacePoint position_hand_left = left_hand_j.Position;
+                            Joint head = trackedBody.Joints[JointType.Head];
+                            CameraSpacePoint position_head = head.Position;
 
-                            float distance = utility.compute_distance(position_hand_right.X, position_hand_right.Y, position_hand_left.X, position_hand_left.Y);
+                            float hands_distance = utility.compute_distance(position_hand_right.X, position_hand_right.Y, position_hand_left.X, position_hand_left.Y);
+                            float right_hand_x_head_distance = utility.compute_distance(position_hand_right.X, position_hand_right.Y, position_head.X, position_head.Y);
+                            float left_hand_x_head_distance = utility.compute_distance(position_hand_left.X, position_hand_left.Y, position_head.X, position_head.Y);
 
                             lastFreq = currentFreq;
                             lastVol = currentVol;
                             //can be changed if leads to bad audios
 
+
+
+
                             //currentVol = (float)(Math.Cos(6*distance+Math.PI)+1)/2;
-                            currentVol = 0.4 f;
-                            currentFreq = 300 / distance;
+                            currentVol = 0.4f;
+                            currentFreq = 200 / hands_distance;
 
-                            if (Math.Abs(previous_distance - distance) <= 0.01)
-                            {
-                                currentVol = 0;
+
+                            if (prev_position_hand_right.Z<=0) {
+                            prev_position_hand_right = position_hand_right;
                             }
-                            previous_distance = distance;
-
-                            if (currentFreq <= 20)
+                        
+                            if (!(active))
                             {
-                                currentFreq = 20;
+                                active = DetectActivationGesture(prev_position_hand_right, position_hand_right);
                             }
-                            if (currentFreq >= 800)
+                            else
                             {
-                                currentFreq = 800;
+                                if (frameSinceActivation >= 90)
+                                {
+                                    Console.WriteLine("###############\nDeactivation after 90 frames\n###############");
+                                    frameSinceActivation = 0;
+                                    active = false;
+                                    currentVol = 0;
+                                    UpdateSineWave(currentVol, currentFreq);
+                                }
                             }
+                                prev_position_hand_right = position_hand_right;
 
-                            //Console.WriteLine("updated normally");
-                            UpdateSineWave(currentVol, currentFreq);
 
+                            //if hands too far away from head, do not consider it 
+                            if (active)
+                            {
+                                if (right_hand_x_head_distance <= 0.7 && left_hand_x_head_distance <= 0.7)
+                                {
+                                    //if distance between hands does not change, do not consider it
+
+                                    if (Math.Abs(previous_distance - hands_distance) <= 0.01)
+                                    {
+                                        Console.WriteLine(lastVol);
+                                        //if (lastVol <= 0.2f)
+                                        //{
+                                        if (lastVol <= 0.05f)
+                                        {
+                                            currentVol = 0;
+                                        }
+                                        else
+                                        {
+                                            currentVol = lastVol / 1.2f;
+                                        }
+                                        //}
+                                        //else
+                                        //{
+                                        //   currentVol = 0.2f;
+                                        //}
+                                    }
+
+
+                                    previous_distance = hands_distance;
+
+
+                                    //bounds the frequency between constants min_frequency and max_frequency
+                                    if (currentFreq <= min_frequency)
+                                    {
+                                        currentFreq = min_frequency;
+                                    }
+                                    if (currentFreq >= max_frequency)
+                                    {
+                                        currentFreq = max_frequency;
+                                    }
+                                }
+                                else
+                                {
+                                    currentVol = 0;
+                                }
+
+
+
+                                UpdateSineWave(currentVol, currentFreq);
+                            }
+                            //else
+                            //{
+                                //currentVol = 0;
+                                //UpdateSineWave(currentVol, currentFreq);
+                            //}
                             //Console.WriteLine(distance);
 
                         }
@@ -156,7 +235,8 @@ namespace KinectHeadPositionConsole
                 soundProvider = new SoundProvider();
                 soundProvider.SetWaveFormat(16000, 1); // 16kHz mono
                 soundProvider.Frequency = 500;
-                soundProvider.Volume = 0;
+                soundProvider.Volume = 0.2f;
+                
                 lastFreq = 1000;
                 lastVol = (float)0.4;
                 waveOut = new WaveOut();
@@ -185,6 +265,19 @@ namespace KinectHeadPositionConsole
                 soundProvider.targetFreq = Freq;
                 soundProvider.targetVol = Vol;
             }
+        }
+
+
+        private static bool DetectActivationGesture(CameraSpacePoint previous_position_hand_right, CameraSpacePoint position_hand_right)
+        {
+            
+            if (previous_position_hand_right.X - position_hand_right.X>0.06/Math.Sqrt(position_hand_right.Z))
+            {
+                Console.WriteLine("###############\ndetected gesture\n###############");
+                return true;
+                
+            }
+            return false;
         }
     }
 }
