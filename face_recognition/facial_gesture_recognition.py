@@ -4,7 +4,12 @@ import time
 mp_drawing = mp.solutions.drawing_utils
 mp_holistic = mp.solutions.holistic
 mp_face_mesh = mp.solutions.face_mesh
+from playsound import playsound
+import threading
 
+#thread function from gpt
+def play_sound_async(path):
+    threading.Thread(target=playsound, args=(path,), daemon=True).start()
 
 chin_initial_y = None
 chin_initial_x = None
@@ -74,7 +79,10 @@ def nod_head(results):
                     number_of_nod = 0
             
             if number_of_nod >= 1 :
-                print("Oui de la tete")              
+                print("Oui de la tete")  
+                play_sound_async(r"C:\Users\houri\Documents\GitHub\Reconnaissance-gestuel\face_recognition\nod.mp3")
+
+                           
                 #reset de number of nod after every nod
                 head_down = False
                 head_up = False
@@ -141,7 +149,8 @@ def head_shake(results):
                     number_of_shake = 0
             
             if number_of_shake >= 1 :
-                print("Non de la tete")              
+                print("Non de la tete")     
+                play_sound_async(r"C:\Users\houri\Documents\GitHub\Reconnaissance-gestuel\face_recognition\shake.mp3")         
                 head_right = False
                 head_left = False          
                 #reset the number of shake after every shake
