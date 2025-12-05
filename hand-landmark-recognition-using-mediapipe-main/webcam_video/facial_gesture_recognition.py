@@ -8,15 +8,6 @@ from playsound import playsound
 import threading
 from AudioGesture import startTheSong, AudioGesture
 from geste import Gesture
-#thread function from gpt
-
-
-#à enlever si programme fonctionnel
-################################
-################################
-################################
-#def play_sound_async(path):
-#    threading.Thread(target=playsound, args=(path,), daemon=True).start()
 
 chin_initial_y = None
 chin_initial_x = None
