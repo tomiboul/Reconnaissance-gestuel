@@ -80,7 +80,7 @@ def nod_head(results):
             
             if number_of_nod >= 1 :
                 print("Oui de la tete")  
-                play_sound_async(r"C:\Users\houri\Documents\GitHub\Reconnaissance-gestuel\face_recognition\nod.mp3")
+                play_sound_async("face_recognition/nod.mp3")
 
                            
                 #reset de number of nod after every nod
@@ -150,7 +150,7 @@ def head_shake(results):
             
             if number_of_shake >= 1 :
                 print("Non de la tete")     
-                play_sound_async(r"C:\Users\houri\Documents\GitHub\Reconnaissance-gestuel\face_recognition\shake.mp3")         
+                play_sound_async("face_recognition/shake.mp3")         
                 head_right = False
                 head_left = False          
                 #reset the number of shake after every shake
