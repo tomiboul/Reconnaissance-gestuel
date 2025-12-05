@@ -18,7 +18,7 @@ cam = cv.VideoCapture(0)
 cam.set(8, width)  # Set the width
 cam.set(6, height)  # Set the height
 
-i = 0 ;
+i = 0 
 gestureConfirmedRight = GestureConfirmed.GestureConfirmed() # crée l'objet permettant de confirmer un geste
 gestureConfirmedLeft = GestureConfirmed.GestureConfirmed() # crée l'objet permettant de confirmer un geste 
 gestureRight = geste.Gesture.nothing
