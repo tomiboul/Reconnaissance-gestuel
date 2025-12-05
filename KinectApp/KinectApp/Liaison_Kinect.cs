@@ -271,7 +271,7 @@ namespace KinectHeadPositionConsole
         private static bool DetectActivationGesture(CameraSpacePoint previous_position_hand_right, CameraSpacePoint position_hand_right)
         {
             
-            if (previous_position_hand_right.X - position_hand_right.X>0.06/Math.Sqrt(position_hand_right.Z))
+            if (previous_position_hand_right.X - position_hand_right.X>0.07/Math.Sqrt(position_hand_right.Z))
             {
                 Console.WriteLine("###############\ndetected gesture\n###############");
                 return true;
