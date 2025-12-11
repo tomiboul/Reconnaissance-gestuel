@@ -4,8 +4,8 @@ import time
 mp_drawing = mp.solutions.drawing_utils
 mp_holistic = mp.solutions.holistic
 mp_face_mesh = mp.solutions.face_mesh
-from playsound import playsound
-import threading
+#from playsound import playsound
+#import threading
 from AudioGesture import startTheSong, AudioGesture
 from geste import Gesture
 
