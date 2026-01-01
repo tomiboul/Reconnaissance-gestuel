@@ -1,19 +1,20 @@
-# Gesture Recognition for Visual Accessibility
+# Project - "Conveying gestures to visually impaired individuals through sonification"
 
 ## Project Overview
 This project was developed as part of the *Embedded and Embodied Interface* course at the **University of Namur**.  
-Its main objective is to provide visually impaired people with access to non-verbal communication by associating gestures with sound (gesture sonification).
+
+Its main objective is to provide an access to non-verbal communication to visualy impaired people by associating gestures with sound (gesture sonification).
 
 The system transforms human gestures and facial expressions into auditory feedback, offering an alternative perceptual channel for understanding non-verbal communication.
 
 ## How It Works
-The project combines motion tracking and machine learning to detect and interpret gestures in real time:
+The project combines **Kineck motion tracking** and **machine learning** to detect and interpret gestures in real time:
 
 - **Body tracking with Kinect**  
-  The Microsoft Kinect sensor provides skeletal data and body movement trajectories.
+  The Kinect is used to detect dynamic gesture due to its abililty to easily retreive skeletal information from an user
 
 - **Hand gesture recognition (Python + MediaPipe)**  
-  MediaPipe is used to capture detailed hand landmarks and detect fine-grained gestures, compensating for Kinect’s limitations in hand tracking.
+  MediaPipe is used to capture detailed hand landmarks and detect fine-grained gestures, compensating for Kinects limitations in hand tracking.
 
 - **Facial expression recognition (Python)**  
   A dedicated module analyses facial expressions using machine learning models, adding emotional and expressive depth to the generated sounds.
