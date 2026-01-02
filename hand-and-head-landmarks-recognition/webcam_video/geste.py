@@ -3,6 +3,7 @@ import cv2 as cv
 import mediapipe.python.solutions.hands as mp_hands
 from math import *
 import calculation as calcul
+
 class Gesture(Enum):
     thumbs_up = "Pouce en l'air"   # pouce en l'air
     thumbs_down = "Pouce en bas"

@@ -1,3 +1,10 @@
+import sys
+import os
+
+# These are two lines added to enable direct execution of these files via these files. They come from ChatGPT.
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.insert(0, ROOT_DIR)
+
 import cv2 as cv
 import mediapipe.python.solutions.hands as mp_hands
 import mediapipe.python.solutions.drawing_utils as drawing
@@ -5,6 +12,8 @@ import mediapipe.python.solutions.drawing_styles as drawing_styles
 import geste
 import GestureConfirmed
 import AudioGesture
+
+
 
 hands = mp_hands.Hands(
     static_image_mode=False,
