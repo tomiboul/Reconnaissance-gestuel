@@ -1,6 +1,7 @@
 import sys
 import os
 
+# These are two lines added to enable direct execution of these files via these files. They come from ChatGPT.
 ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, ROOT_DIR)
 
