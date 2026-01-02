@@ -10,8 +10,8 @@ The system transforms human gestures and facial expressions into auditory feedba
 ## How It Works
 The project combines **Kineck motion tracking** and **machine learning** to detect and interpret gestures in real time:
 
-- **Body tracking with Kinect**  
-  The Kinect is used to detect dynamic gesture due to its abililty to easily retreive skeletal information from an user
+- **Motion tracking with Kinect**  
+  The Kinect is used to detect one dynamic gesture due to its abililty to easily retreive skeletal information from an user
 
 - **Hand gesture recognition (Python + MediaPipe)**  
   MediaPipe is used to capture detailed hand landmarks and detect fine-grained gestures, compensating for Kinects limitations in hand tracking.
@@ -24,17 +24,14 @@ Each recognized gesture or expression is then **sonified** (transformed into a s
 ## Repository Structure
 The repository is organized into three main folders:
 
-??? KinectApp/
-? ??? C# code controlling the Kinect sensor and managing body tracking
-?
-??? Hand-landmark-recognition-using-mediapipe/
-? ??? Python scripts using MediaPipe for detailed hand gesture recognition
-?
-??? face_recognition/
-??? Python scripts for facial expression detection using machine learning
+**KinectApp**: C# code controlling the Kinect sensor and managing body tracking
+
+**Hand-and-head-landmarks-recognition**: Python scripts using MediaPipe for detailed hand gesture recognition
+
 
 ## Research Purpose
 This project was developed in parallel with a scientific study investigating the impact of gesture sonification on the understanding of gestures by visually impaired people.  
+
 The research aims to determine whether **translating gestures into sound** can:
 
 - Improve access to non-verbal communication  
